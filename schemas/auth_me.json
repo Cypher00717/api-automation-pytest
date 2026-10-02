@@ -1,0 +1,35 @@
+{
+  "type": "object",
+  "properties": {
+    "success": {
+      "type": "boolean"
+    },
+    "user": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "integer"
+        },
+        "email": {
+          "type": "string"
+        },
+        "iat": {
+          "type": "integer"
+        },
+        "exp": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "userId",
+        "email",
+        "iat",
+        "exp"
+      ]
+    }
+  },
+  "required": [
+    "success",
+    "user"
+  ]
+}

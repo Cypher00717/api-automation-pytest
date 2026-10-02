@@ -1,0 +1,30 @@
+{
+	"type": "object",
+	"required": ["success", "error", "details"],
+	"properties": {
+		"success": {
+			"type": "boolean",
+			"const": false
+		},
+		"error": {
+			"type": "string"
+		},
+		"details": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"required": ["field", "message"],
+				"properties": {
+					"field": {
+						"type": "string"
+					},
+					"message": {
+						"type": "string"
+					}
+				},
+				"additionalProperties": false
+			}
+		}
+	},
+	"additionalProperties": false
+}
