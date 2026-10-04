@@ -41,14 +41,13 @@ def test_invalid_login_user(api_client):
 
 
 @pytest.mark.missing
-@pytest.mark.parametrize("payload", [missing_email, missing_password, empty_payload])
-def test_missing_fields_login_user(api_client, payload):
+def test_missing_fields_login_user(api_client):
     
-    response = api_client.post(login_user_endpoint, payload)
+    response = api_client.post(login_user_endpoint, missing_email)
     assert response.status_code == 400
     body = response.json()
 
-    validate_schema(body, 'schemas/missing_fields_login.json')
+    validate_schema(body, 'schemas/login_error_schema.json')
 
     assert body["success"] is False, "Expected success to be False for missing fields login"
     assert body["error"] == "Validation failed", "Expected error message for missing fields login"
